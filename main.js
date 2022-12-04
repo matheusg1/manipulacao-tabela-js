@@ -1,4 +1,39 @@
+$(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#myTable tfoot th').each(function () {
+        
+        var title = $(this).text();
+        $(this).html('<input type="text" placeholder="Search ' + title + '" />')
+    });
 
+    // DataTable
+    var table = $('#myTable').DataTable({
+        "pageLength": 25,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json"
+        },
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw()
+                        }
+                    })
+                })
+        },
+    })
+    $('#myTable tfoot tr').appendTo('#myTable thead');
+
+})
+
+
+
+//Versao c/ select
+/*
 $(document).ready(function () {
     $('#myTable').DataTable({
         "pageLength": 25,
@@ -36,7 +71,7 @@ var t24 = t23.firstElementChild
 var t25 = t24.firstElementChild
 t24.style.visibility = 'hidden'
 console.log(t25)
-
+*/
 /*
 $(document).ready(function () {
     $('#myTable').DataTable({
