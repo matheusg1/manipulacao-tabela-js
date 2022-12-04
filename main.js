@@ -23,7 +23,6 @@ for (var i = 0; i < 6; i++) {
     table.appendChild(tr)
 }
 
-//getCellValue = recebeValorColuna
 
 const recebeValorColuna = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
@@ -40,60 +39,28 @@ const comparador = (idx, asc) => (a, b) => ((v1, v2) =>
 })));
 
 
-function myFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
+
+
+
+var todosFiltros = document.querySelectorAll('.filtro')
+
+todosFiltros.forEach(function(input, indice){
+    input.addEventListener('keyup', function() {
+    var filtro = input.value.toUpperCase();
+    filtrarTabela(indice, filtro)
+    })
+})
+
+function filtrarTabela(indice, filtro) {
+    var table, tr, td, i, texto;
     table = document.getElementById("tabela");
     tr = table.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
+        td = tr[i].getElementsByTagName("td")[indice];
         if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-}
-
-
-function myFunction2() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementsByClassName("filtro")[1];
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tabela");
-    tr = table.getElementsByTagName("tr");
-
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-}
-
-
-function myFunction3() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementsByClassName("filtro")[2];
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tabela");
-    tr = table.getElementsByTagName("tr");
-
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[2];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            texto = td.textContent || td.innerText;
+            if (texto.toUpperCase().indexOf(filtro) > -1) {
                 tr[i].style.display = "";
             } else {
                 tr[i].style.display = "none";
