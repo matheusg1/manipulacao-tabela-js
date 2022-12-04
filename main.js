@@ -1,3 +1,36 @@
+
+$(document).ready(function () {
+    $('#myTable').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json"
+        },
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                });
+        },
+    });
+});
+
+
+/*
 $(document).ready(function () {
     $('#myTable').DataTable({
         "language": {
@@ -5,7 +38,7 @@ $(document).ready(function () {
         }
     });
 });
-
+*/
 
 var tbody = document.querySelector('tbody')
 var nome = document.getElementsByTagName('tr')[0]
