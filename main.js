@@ -27,9 +27,15 @@ $(document).ready(function () {
                         });
                 });
         },
-    });
-});
+    })
+})
 
+var tfoot = document.getElementsByTagName('tfoot')[0]
+var t23 = tfoot.firstElementChild
+var t24 = t23.firstElementChild
+var t25 = t24.firstElementChild
+t24.style.visibility = 'hidden'
+console.log(t25)
 
 /*
 $(document).ready(function () {
