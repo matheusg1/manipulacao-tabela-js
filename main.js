@@ -1,9 +1,10 @@
 $(document).ready(function () {
     // Setup - add a text input to each footer cell
+    
     $('#myTable tfoot th').each(function () {
         
         var title = $(this).text();
-        $(this).html('<input type="text" placeholder="Search ' + title + '" />')
+        $(this).html('<input type="text" placeholder="Buscar ' + title + '" />')
     });
 
     // DataTable
@@ -30,6 +31,8 @@ $(document).ready(function () {
 
 })
 
+//var t2 = document.getElementsByTagName('label')
+//console.log(t2)
 
 
 //Versao c/ select
