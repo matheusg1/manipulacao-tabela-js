@@ -1,9 +1,22 @@
-var table = document.querySelector('tbody')
+$(document).ready(function () {
+    $('#myTable').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json"
+        }
+    });
+});
+
+
+var tbody = document.querySelector('tbody')
 var nome = document.getElementsByTagName('tr')[0]
 var idade = document.getElementsByTagName('tr')[1]
 
 var nomes = ['Maria', 'Jose', 'Marcos', 'Beiçola', 'Jurema', 'Valdemar']
-var numeros = [43, 65, 98, 55, 47, 56, 21, 32]
+var cargos = ['Estoquista', 'Vendedor', 'Faxineiro', 'Mestre', 'Professor', 'Policia']
+var locais = ['RJ', 'SP', 'MG', 'ES', 'PB', 'PE']
+var idade = [43, 65, 98, 55, 47, 56, 21, 32]
+var diaInicio = ['23', '25', '12', '10', '01', '12']
+
 
 for (var i = 0; i < 6; i++) {
     var tr = document.createElement('tr')
@@ -13,16 +26,24 @@ for (var i = 0; i < 6; i++) {
     tr.appendChild(td)
 
     var td = document.createElement('td')
+    td.innerText = cargos[i]
+    tr.appendChild(td)
+
+    var td = document.createElement('td')
+    td.innerText = locais[i]
+    tr.appendChild(td)
+
+    var td = document.createElement('td')
     td.innerText = 23 + i
     tr.appendChild(td)
 
     var td = document.createElement('td')
-    td.innerText = numeros[i]
+    td.innerText = idade[i]
     tr.appendChild(td)
 
-    table.appendChild(tr)
+    tbody.appendChild(tr)
 }
-
+/*
 
 const recebeValorColuna = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
@@ -68,3 +89,4 @@ function filtrarTabela(indice, filtro) {
         }
     }
 }
+*/
