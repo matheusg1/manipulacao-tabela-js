@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
     $('#myTable').DataTable({
+        "pageLength": 25,
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json"
         },
@@ -44,14 +45,14 @@ var tbody = document.querySelector('tbody')
 var nome = document.getElementsByTagName('tr')[0]
 var idade = document.getElementsByTagName('tr')[1]
 
-var nomes = ['Maria', 'Jose', 'Marcos', 'Beiçola', 'Jurema', 'Valdemar']
-var cargos = ['Estoquista', 'Vendedor', 'Faxineiro', 'Mestre', 'Professor', 'Policia']
-var locais = ['RJ', 'SP', 'MG', 'ES', 'PB', 'PE']
-var idade = [43, 65, 98, 55, 47, 56, 21, 32]
-var diaInicio = ['23', '25', '12', '10', '01', '12']
+var nomes = ['Rocky Chaney', 'Titus Hilliard', 'Belen Packer', 'Amanda Rangel', 'Jayde Hamel', 'Cierra Liles', 'German Cash', 'Kalli Dempsey', 'Blair Weber', 'Johnson Deluca', 'Jerome Bray', 'Pearl Seals', 'Darion Anderson', 'Kenyon Stull', 'Garret Toler', 'Sylvia Pence', 'Kristine Prescott', 'Ethan Palma', 'Destany Miller', 'Carlton Nobles', 'Jameson McClung', 'Kody Wang', 'Harley Fonseca', 'Dalia Beatty', 'Kayla Alston', 'Omar Foster', 'Trae Mcnutt', 'Tina Bird', 'Carlos Roy', 'Bishop Whiting', 'Moira McCarter', 'Chanel Carbajal', 'Sheldon Christy', 'Anderson Huber', 'Julio Sims', 'Tommy Dennis', 'Micayla Wasson', 'Vera Grabowski', 'Princess Feliciano', 'Ty Gulley', 'Colby Worthington', 'Messiah Ellington', 'Audrey Coulter', 'Junior Gorman', 'Easton Welker', 'Kayden Lim', 'Grecia Weinberg', 'Raina Slagle', 'Zain Sneed', 'Yamile Madrid', 'Guadalupe Strauss', 'Charlie Webster', 'Tristan Mojica', 'Cristian Yanez', 'Abdul Swope', 'Alex Allen', 'Johnson Dunning', 'June Viera', 'Kristina Kessler', 'Colt McCullough']
+var cargos = ['Menachem Ho', 'Kaylynn Mays', 'Moses Goad', 'Shannon Lantz', 'Kaylan Fagan', 'Lucero Gold', 'Marquise Wetzel', 'Trenten Nugent', 'Alana Hartman', 'Marian Cook', 'Jailene Morrissey', 'Konnor Ernst', 'Brookelyn Snowden', 'Saira Robinson', 'Danny Mount', 'Lawson McClellan', 'Katya See', 'Fredy Eng', 'Jared Gary', 'Eugene Nye', 'Jonatan McClellan', 'Juliann Estrella', 'Maxim Hatch', 'Rocky Deluca', 'Helena Larkin', 'Eric Scherer', 'Jaycob Burton', 'Taniya Duff', 'Belen Mclemore', 'Tyreek Mcfarlane', 'Maxine Golden', 'Karina McGowan', 'Tierra Jamison', 'Chad Cochrane', 'Amaris Norwood', 'Giovanny Fuller', 'Aleigha Luttrell', 'Imani Brady', 'Cain Schott', 'Shauna Sun', 'Brennon Chen', 'Jaiden Echols', 'Theron Kauffman', 'Lauryn Jasper', 'Tye Cary', 'Octavia Sutton', 'Elian Doan', 'Marina Field', 'Warren Abbott', 'Kate Eads', 'Chyanne Seitz', 'Louise Nicholas', 'Kegan Searcy', 'Andrew Deaton', 'Emilie McCurdy', 'Edna Zavala', 'Carleigh Gossett', 'Marcel Alexander', 'Elexis Pedersen', 'Liam Neil']
+var locais = ['Misael Crowder', 'Jaila Partridge', 'Sabina Pardo', 'Makaela Vickery', 'Emmanuel Melendez', 'Garett Cote', 'Elias Loera', 'Kendall Babb', 'Sariah Dunn', 'Kolby Chacon', 'Kobi Finley', 'Anissa Hernandez', 'Kamren Booker', 'Tyreke Busby', 'Paul Brinkley', 'Priscilla Victor', 'Brodie Heller', 'Brayan Godwin', 'Marianna Gulley', 'Armani Hendrix', 'Samira Robert', 'Kyra Hammons', 'Felipe Burk', 'Jaime Rowan', 'Amir Herrera', 'Kali Toney', 'Efren Lai', 'Raven Higdon', 'Melvin Coble', 'Amos Leahy', 'Emma Harry', 'Mikala Blalock', 'Kyron Lilly', 'Savanna Waugh', 'Taliyah Chao', 'Jaeden Saucedo', 'Christion Hanlon', 'Marlena Boyles', 'Alina Sargent', 'Juan Beal', 'Cruz Haas', 'Rowan Rogers', 'Aubree Paulsen', 'Sanjana Browning', 'Maia Serna', 'Tiara Temple', 'Jackson Guillen', 'Dianna Broussard', 'Esteban Ha', 'Freddie Bratcher', 'Haily Brandt', 'Devontae Gossett', 'Sabastian Salisbury', 'Maricela Dwyer', 'Bernardo Carrera', 'Rayna Lawless', 'Donte Potts', 'Hannah Coley', 'Vicente Deutsch', 'Raymond Morin']
+var idade = [13, 25, 95, 38, 1, 16, 2, 35, 66, 9, 8, 74, 41, 30, 18, 31, 4, 29, 56, 47, 64, 56, 11, 85, 58, 3, 94, 41, 56, 18, 53, 49, 27, 65, 84, 52, 37, 53, 84, 96, 21, 62, 73, 87, 51, 19, 94, 99, 33, 88, 43, 50, 35, 12, 45, 27, 84, 40, 55, 64]
+var diaInicio = [16, 32, 15, 12, 48, 59, 62, 1, 70, 56, 11, 19, 11, 27, 80, 44, 24, 59, 14, 62, 14, 21, 90, 87, 62, 41, 36, 86, 97, 43, 94, 45, 17, 75, 20, 76, 85, 33, 5, 90, 24, 26, 64, 22, 13, 60, 44, 44, 29, 31, 45, 71, 6, 96, 34, 34, 64, 15, 15, 83]
 
 
-for (var i = 0; i < 6; i++) {
+for (var i = 0; i < 50; i++) {
     var tr = document.createElement('tr')
 
     var td = document.createElement('td')
